@@ -1,4 +1,6 @@
 import React, { Fragment, useEffect, useState } from 'react';
+import { PropTypes } from 'prop-types';
+
 import { GifItem } from './GifItem';
 import { useFetchGifs } from '../hooks/useFetchGifs';
 
@@ -16,7 +18,7 @@ export const GifGrid = ({ category }) => {
             isLoading && (<h4>Cargando...</h4>)
         }
 
-        <div className='carg-grid'>
+        <div className='card-grid'>
             {
                 images.map( ( image ) => (
                     <GifItem 
@@ -30,4 +32,9 @@ export const GifGrid = ({ category }) => {
         </div>
     </Fragment>
   )
+}
+
+
+GifGrid.propTypes = {
+    category: PropTypes.string.isRequired
 }
